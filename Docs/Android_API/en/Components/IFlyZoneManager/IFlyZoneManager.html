@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -738,7 +738,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">getFlyZonesInSurroundingArea</span><span class="params">(<span class="meta">@NonNull</span> LocationCoordinate2D location, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallbackWithParam&lt;List&lt;FlyZoneInformation&gt;&gt; callback)</span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
 <h5 id="Description-5">Description:</h5>
-<p><font color="#666">Gets the fly zones within 50 kilometers from the central location. <br><b>Note:<br> If there are too many fly zones obtained, drawing the fly zones on the map may cause ANR problems. It is recommended to optimize the display.</b>             <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<p><font color="#666">Gets the fly zones within 50 kilometers from the central location. <br><b>Note:<br> If there are too many fly zones obtained, drawing the fly zones on the map may cause ANR problems. It is recommended to optimize the display.</b> <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
 <h5 id="Input-Parameters-3">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate2D.html#value_common_struct_locationcoordinate2d">LocationCoordinate2D</a> <font color="#000">location</td><td><font color="#666"><i>Set the the central location.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWithParam&lt;List&lt;<a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlyZoneInformation.html#iflyzonemanager_flyzoneinformation">FlyZoneInformation</a>&gt;&gt; <font color="#000">callback</td><td><font color="#666"><i>Return the callback of execution result.</i></td></tr></table></html></div>
 <html><p><br></p></html>
@@ -963,17 +963,29 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafereturntohomeevent_nearnoflyzone_inline"></a>NEAR_NO_FLY_ZONE</td><td><font color="#666">Approaching a No-Fly Zone. Return to home may be affected. Fly with caution.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafereturntohomeevent_crossnoflyzone_inline"></a>CROSS_NO_FLY_ZONE</td><td><font color="#666">Current Return to home route will pass a No-Fly zone. Pay attention to the aircraft's position to avoid Return to home failure.</td></tr></table></html>
 <h5 id="Class-Members-5">Class Members:</h5>
 </div>
-<div class="api-row" id="iflyzonemanager_flysafereturntohomeinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlySafeReturnToHomeInformation.html">FlySafeReturnToHomeInformation</a></div></div><div class="api-row" id="iflyzonemanager_flyzonetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzonetype_inline">FlyZoneType</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzonetype_inline"
+<div class="api-row" id="iflyzonemanager_flysafereturntohomeinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlySafeReturnToHomeInformation.html">FlySafeReturnToHomeInformation</a></div></div><div class="api-row" id="iflyzonemanager_flysafelicensetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flysafelicensetype_inline">FlySafeLicenseType</a></div></div><div class="inline-doc" id="iflyzonemanager_flysafelicensetype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>FlySafeLicenseType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlySafeLicenseType</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-24">Description:</h5>
+<p><font color="#666">Type of flysafe license. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Enum-Members-5">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_geo_unlock_inline"></a>GEO_UNLOCK</td><td><font color="#666">GEO unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_circle_unlock_area_inline"></a>CIRCLE_UNLOCK_AREA</td><td><font color="#666">Circle unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_country_unlock_inline"></a>COUNTRY_UNLOCK</td><td><font color="#666">Country unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_parameter_configuration_inline"></a>PARAMETER_CONFIGURATION</td><td><font color="#666">Limite height unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_pentagon_unlock_area_inline"></a>PENTAGON_UNLOCK_AREA</td><td><font color="#666">Polygon unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_power_unlock_inline"></a>POWER_UNLOCK</td><td><font color="#666">Power unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_rid_unlock_inline"></a>RID_UNLOCK</td><td><font color="#666">RID unlock.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafelicensetype_unknown_inline"></a>UNKNOWN</td><td><font color="#666">unkonw.</td></tr></table></html>
+<h5 id="Class-Members-6">Class Members:</h5>
+</div>
+<div class="api-row" id="iflyzonemanager_flyzonetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzonetype_inline">FlyZoneType</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzonetype_inline"
 <blockquote>
 <div class="article"><h6 ><font color="#AAA">enum </font>FlyZoneType</h6></div>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlyZoneType</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
-<h5 id="Description-24">Description:</h5>
+<h5 id="Description-25">Description:</h5>
 <p><font color="#666">Type of restricted fly zone. Including airports, parks, schools, stadium, etc. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
-<h5 id="Enum-Members-5">Enum Members:</h5>
+<h5 id="Enum-Members-6">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_airport_inline"></a>AIRPORT</td><td><font color="#666">Airport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_commercialairport_inline"></a>COMMERCIAL_AIRPORTS</td><td><font color="#666">Commercial airport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_privatecommercialairport_inline"></a>PRIVATE_COMMERCIAL_AIRPORTS</td><td><font color="#666">Private commercial airport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_recreationalairport_inline"></a>RECREATIONAL_AIRPORTS</td><td><font color="#666">Recreational airport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_privaterecreationalairport_inline"></a>PRIVATE_RECREATIONAL_AIRPORTS</td><td><font color="#666">Private recreational airport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_heliport_inline"></a>HELIPORT</td><td><font color="#666">Heliport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_unpavedairport_inline"></a>UNPAVED_AIRPORT</td><td><font color="#666">Unpaved airport.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_nationalpark_inline"></a>NATIONAL_PARKS</td><td><font color="#666">National park.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_noaa_inline"></a>NOAA</td><td><font color="#666">NOAA.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_parcel_inline"></a>PARCEL</td><td><font color="#666">Post office.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_powerplant_inline"></a>POWER_PLANT</td><td><font color="#666">Power plant.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_school_inline"></a>SCHOOL</td><td><font color="#666">School.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_stadium_inline"></a>STADIUM</td><td><font color="#666">stadium.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_nuclearpowerplant_inline"></a>NUCLEAR_POWER_PLANT</td><td><font color="#666">Nuclear power plant.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_prohibitedspecialuse_inline"></a>PROHIBITED_SPECIAL_USE</td><td><font color="#666">Special Use.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_restrictedspecialuse_inline"></a>RESTRICTED_SPECIAL_USE</td><td><font color="#666">Special Use.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_special_inline"></a>SPECIAL</td><td><font color="#666">Special fly zone.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_temporaryflightrestriction_inline"></a>TEMPORARY_FLIGHT_RESTRICTIONS</td><td><font color="#666">Temporary flight restriction.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_classbairspace_inline"></a>CLASS_B_AIR_SPACE</td><td><font color="#666">Class B controlled airspace. See http://www.dji.com/flysafe/geo-system#notes for more information on the controlled airspace (Class B, C, D, E) in the United States.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_classcairspace_inline"></a>CLASS_C_AIR_SPACE</td><td><font color="#666">Class C controlled airspace. See http://www.dji.com/flysafe/geo-system#notes for more information on the controlled airspace (Class B, C, D, E) in the United States.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_classdairspace_inline"></a>CLASS_D_AIR_SPACE</td><td><font color="#666">Class D controlled airspace. See http://www.dji.com/flysafe/geo-system#notes for more information on the controlled airspace (Class B, C, D, E) in the United States.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_classeairspace_inline"></a>CLASS_E_AIR_SPACE</td><td><font color="#666">Class E controlled airspace. See http://www.dji.com/flysafe/geo-system#notes for more information on the controlled airspace (Class B, C, D, E) in the United States.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_prison_inline"></a>PRISON</td><td><font color="#666">Prison.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonetype_military_inline"></a>MILITARY</td><td><font color="#666">Military.</td></tr></table></html>
-<h5 id="Class-Members-6">Class Members:</h5>
+<h5 id="Class-Members-7">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_flyzonecategory"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzonecategory_inline">FlyZoneCategory</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzonecategory_inline"
 <blockquote>
@@ -981,11 +993,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlyZoneCategory</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
-<h5 id="Description-25">Description:</h5>
+<h5 id="Description-26">Description:</h5>
 <p><font color="#666">Restricted Fly Zone category. Including restricted zone, authorization zone, warning zone and enhanced warning zone, etc. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
-<h5 id="Enum-Members-6">Enum Members:</h5>
+<h5 id="Enum-Members-7">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonecategory_warning_inline"></a>WARNING</td><td><font color="#666">Warning.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonecategory_enhancedwarning_inline"></a>ENHANCED_WARNING</td><td><font color="#666">Enhanced warning.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonecategory_authorization_inline"></a>AUTHORIZATION</td><td><font color="#666">authorization fly zone.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzonecategory_restricted_inline"></a>RESTRICTED</td><td><font color="#666">Restricted fly zone.</td></tr></table></html>
-<h5 id="Class-Members-7">Class Members:</h5>
+<h5 id="Class-Members-8">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_flyzoneshape"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneshape_inline">FlyZoneShape</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneshape_inline"
 <blockquote>
@@ -993,11 +1005,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlyZoneShape</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
-<h5 id="Description-26">Description:</h5>
+<h5 id="Description-27">Description:</h5>
 <p><font color="#666">Restricted fly zone shape type. Includes circles and polygons. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
-<h5 id="Enum-Members-7">Enum Members:</h5>
+<h5 id="Enum-Members-8">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzoneshape_circle_inline"></a>CIRCLE</td><td><font color="#666">circle.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flyzoneshape_multipolygon_inline"></a>MULTI_POLYGON</td><td><font color="#666">Polygon. Contains cylindrical and polygonal restricted fly zones.</td></tr></table></html>
-<h5 id="Class-Members-8">Class Members:</h5>
+<h5 id="Class-Members-9">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_multipolygonflyzoneshape"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_multipolygonflyzoneshape_inline">MultiPolygonFlyZoneShape</a></div></div><div class="inline-doc" id="iflyzonemanager_multipolygonflyzoneshape_inline"
 <blockquote>
@@ -1005,11 +1017,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">MultiPolygonFlyZoneShape</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
-<h5 id="Description-27">Description:</h5>
+<h5 id="Description-28">Description:</h5>
 <p><font color="#666">The shape type of polygonal restricted fly zone. Includes cylinders and polygons. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
-<h5 id="Enum-Members-8">Enum Members:</h5>
+<h5 id="Enum-Members-9">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_multipolygonflyzoneshape_cylinder_inline"></a>CYLINDER</td><td><font color="#666">Cylinder.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_multipolygonflyzoneshape_polygon_inline"></a>POLYGON</td><td><font color="#666">Polygon.</td></tr></table></html>
-<h5 id="Class-Members-9">Class Members:</h5>
+<h5 id="Class-Members-10">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_multipolygonflyzoneinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_MultiPolygonFlyZoneInformation.html">MultiPolygonFlyZoneInformation</a></div></div><div class="api-row" id="iflyzonemanager_flyzoneinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlyZoneInformation.html">FlyZoneInformation</a></div></div><div class="api-row" id="iflyzonemanager_flyzonelicenseinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlyZoneLicenseInfo.html">FlyZoneLicenseInfo</a></div></div><div class="api-row" id="iflyzonemanager_ridunlocktype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_ridunlocktype_inline">RidUnlockType</a></div></div><div class="inline-doc" id="iflyzonemanager_ridunlocktype_inline"
 <blockquote>
@@ -1017,11 +1029,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">RidUnlockType</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
-<h5 id="Description-28">Description:</h5>
+<h5 id="Description-29">Description:</h5>
 <p><font color="#666">RID unlock type. <br><br><code><i>Supported since MSDK 5.8.0</i></code></p>
-<h5 id="Enum-Members-9">Enum Members:</h5>
+<h5 id="Enum-Members-10">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_ridunlocktype_european_inline"></a>EUROPEAN</td><td><font color="#666">European.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_ridunlocktype_china_inline"></a>CHINA</td><td><font color="#666">China.</td></tr></table></html>
-<h5 id="Class-Members-10">Class Members:</h5>
+<h5 id="Class-Members-11">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_flysafenotificationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlySafeNotificationListener.html">FlySafeNotificationListener</a></div></div><div class="api-row" id="iflyzonemanager_flysafedatabaselistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlySafeDatabaseListener.html">FlySafeDatabaseListener</a></div></div><div class="api-row" id="iflyzonemanager_flysafedatabaseinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IFlyZoneManager/IFlyZoneManager_FlySafeDatabaseInfo.html">FlySafeDatabaseInfo</a></div></div><div class="api-row" id="iflyzonemanager_flysafedatabaseupgrademode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flysafedatabaseupgrademode_inline">FlySafeDatabaseUpgradeMode</a></div></div><div class="inline-doc" id="iflyzonemanager_flysafedatabaseupgrademode_inline"
 <blockquote>
@@ -1029,11 +1041,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlySafeDatabaseUpgradeMode</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe</td></tr></table></html>
-<h5 id="Description-29">Description:</h5>
+<h5 id="Description-30">Description:</h5>
 <p><font color="#666">Fly safety database upgrade mode. Includes manual import and automatic upgrade. MSDK only supports manual import mode. If you need to use automatic upgrade mode, please use DJI official APP. <br><br><code><i>Supported since MSDK 5.8.0</i></code></p>
-<h5 id="Enum-Members-10">Enum Members:</h5>
+<h5 id="Enum-Members-11">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabaseupgrademode_manual_import_inline"></a>MANUAL_IMPORT</td><td><font color="#666">Manual import mode. MSDK only supports manual upgrade mode. If you need to use automatic upgrade mode, please use the DJI official APP.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabaseupgrademode_automatic_upgrade_inline"></a>AUTOMATIC_UPGRADE</td><td><font color="#666">Automatic upgrade mode. MSDK only supports manual upgrade mode. If you need to use automatic upgrade mode, please use the DJI official APP. The automatic update mode can only be used as a supplement for fly safety. If you want to fly your aircraft compliantly in the EU, please refer to manually importing EU GeoZone data into the aircraft.</td></tr></table></html>
-<h5 id="Class-Members-11">Class Members:</h5>
+<h5 id="Class-Members-12">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_flysafedatabasecomponent"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flysafedatabasecomponent_inline">FlySafeDatabaseComponent</a></div></div><div class="inline-doc" id="iflyzonemanager_flysafedatabasecomponent_inline"
 <blockquote>
@@ -1041,11 +1053,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlySafeDatabaseComponent</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe</td></tr></table></html>
-<h5 id="Description-30">Description:</h5>
+<h5 id="Description-31">Description:</h5>
 <p><font color="#666">Fly safety database component type. Includes MSDK and aircraft. <br><br><code><i>Supported since MSDK 5.8.0</i></code></p>
-<h5 id="Enum-Members-11">Enum Members:</h5>
+<h5 id="Enum-Members-12">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabasecomponent_aircraft_inline"></a>AIRCRAFT</td><td><font color="#666">Aircraft.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabasecomponent_msdk_inline"></a>MSDK</td><td><font color="#666">MSDK.</td></tr></table></html>
-<h5 id="Class-Members-12">Class Members:</h5>
+<h5 id="Class-Members-13">Class Members:</h5>
 </div>
 <div class="api-row" id="iflyzonemanager_flysafedatabasestate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flysafedatabasestate_inline">FlySafeDatabaseState</a></div></div><div class="inline-doc" id="iflyzonemanager_flysafedatabasestate_inline"
 <blockquote>
@@ -1053,11 +1065,11 @@ After the push is successful, you can call <code><a href="../../Components/IFlyZ
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">FlySafeDatabaseState</span> </span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe</td></tr></table></html>
-<h5 id="Description-31">Description:</h5>
+<h5 id="Description-32">Description:</h5>
 <p><font color="#666">Fly safety database state. <br><br><code><i>Supported since MSDK 5.8.0</i></code></p>
-<h5 id="Enum-Members-12">Enum Members:</h5>
+<h5 id="Enum-Members-13">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabasestate_need_to_import_inline"></a>NEED_TO_IMPORT</td><td><font color="#666">Need to import. Indicates that the current database of MSDK does not contain data on the current position of the aircraft. Please call <code><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_importflysafedynamicdatabasetomsdk">importFlySafeDynamicDatabaseToMSDK</a></code> to import the database near the aircraft location.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabasestate_need_to_sync_inline"></a>NEED_TO_SYNC</td><td><font color="#666">Need to synchronize. Indicates that the database in MSDK needs to be synchronized to the aircraft. Please call <code><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_pushflysafedynamicdatabasetoaircraft">pushFlySafeDynamicDatabaseToAircraft</a></code> to push the database in MSDK to the aircraft.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iflyzonemanager_flysafedatabasestate_up_to_date_inline"></a>UP_TO_DATE</td><td><font color="#666">Up to date. Indicates that the MSDK database has been successfully synchronized to the aircraft.</td></tr></table></html>
-<h5 id="Class-Members-13">Class Members:</h5>
+<h5 id="Class-Members-14">Class Members:</h5>
 </div>
 
         </div>
