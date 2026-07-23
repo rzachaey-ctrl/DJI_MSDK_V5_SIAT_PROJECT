@@ -10,7 +10,7 @@
 
     <groupId>com.dji</groupId>
     <artifactId>cloud-api-sample</artifactId>
-    <version>${revision}</version>
+    <version>1.10.0</version>
     <name>cloud-api-sample</name>
 
     <properties>
@@ -73,6 +73,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.7.12</version>
                 <configuration>
                     <excludes>
                         <exclude>
