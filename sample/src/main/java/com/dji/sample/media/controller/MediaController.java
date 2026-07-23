@@ -19,7 +19,7 @@ import java.util.List;
  * @date 2021/12/7
  */
 @Slf4j
-@RestController
+//@RestController
 public class MediaController implements IHttpMediaService {
 
     @Autowired

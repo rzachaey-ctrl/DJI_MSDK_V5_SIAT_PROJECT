@@ -16,7 +16,7 @@ import java.net.URL;
  * @version 0.2
  * @date 2021/12/9
  */
-@RestController
+//@RestController
 @RequestMapping("${url.media.prefix}${url.media.version}/files")
 public class FileController {
 

@@ -26,7 +26,7 @@ import static com.dji.sample.component.AuthInterceptor.TOKEN_CLAIM;
  * @version 0.2
  * @date 2021/11/29
  */
-@RestController
+//@RestController
 public class WorkspaceElementController implements IHttpMapService {
 
     @Autowired

@@ -16,7 +16,7 @@ import javax.validation.Valid;
  * @version 1.2
  * @date 2022/7/29
  */
-@RestController
+//@RestController
 @Slf4j
 @RequestMapping("${url.control.prefix}${url.control.version}/devices")
 public class DockController {

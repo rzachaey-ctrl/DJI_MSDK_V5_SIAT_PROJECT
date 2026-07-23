@@ -29,7 +29,7 @@ import static com.dji.sample.component.AuthInterceptor.TOKEN_CLAIM;
  * @version 1.2
  * @date 2022/8/16
  */
-@RestController
+//@RestController
 @RequestMapping("${url.manage.prefix}${url.manage.version}/workspaces")
 @Validated
 public class DeviceFirmwareController {

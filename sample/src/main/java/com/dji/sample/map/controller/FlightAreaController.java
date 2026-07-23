@@ -21,7 +21,7 @@ import static com.dji.sample.component.AuthInterceptor.TOKEN_CLAIM;
  * @version 1.9
  * @date 2023/11/21
  */
-@RestController
+//@RestController
 @RequestMapping("${url.map.prefix}${url.map.version}/workspaces")
 public class FlightAreaController {
 
