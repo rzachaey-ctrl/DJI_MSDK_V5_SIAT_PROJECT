@@ -1,0 +1,84 @@
+0 verbose cli E:\Downloads\nodejs\node.exe E:\Downloads\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.16.0
+2 info using node@v24.18.0
+3 silly config load:file:E:\Downloads\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\dev\Cloud-API-Demo\.npmrc
+5 silly config load:file:C:\Users\R\.npmrc
+6 silly config load:file:C:\Users\R\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install
+8 verbose argv "install" "--registry" "https://registry.npmjs.org" "--cache" "C:\\dev\\.npm-cache-official" "--prefer-online" "--legacy-peer-deps" "--loglevel" "verbose"
+9 verbose logfile logs-max:10 dir:C:\dev\.npm-cache-official\_logs\2026-07-23T03_48_05_353Z-
+10 verbose logfile C:\dev\.npm-cache-official\_logs\2026-07-23T03_48_05_353Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest @amap/amap-jsapi-loader@https://registry.npmmirror.com/@amap/amap-jsapi-loader/download/@amap/amap-jsapi-loader-1.0.1.tgz
+15 http fetch GET 200 https://registry.npmjs.org/npm 343ms
+16 http fetch GET 200 https://cdn.npmmirror.com/packages/%40amap/amap-jsapi-loader/1.0.1/amap-jsapi-loader-1.0.1.tgz 750ms (cache miss)
+17 silly fetch manifest @ant-design/icons-vue@https://registry.npmmirror.com/@ant-design/icons-vue/download/@ant-design/icons-vue-6.0.1.tgz
+18 http fetch GET 200 https://cdn.npmmirror.com/packages/%40ant-design/icons-vue/6.0.1/icons-vue-6.0.1.tgz 1883ms (cache miss)
+19 silly fetch manifest @vitejs/plugin-legacy@https://registry.npmmirror.com/@vitejs/plugin-legacy/download/@vitejs/plugin-legacy-1.6.4.tgz
+20 http fetch GET 200 https://cdn.npmmirror.com/packages/%40vitejs/plugin-legacy/1.6.4/plugin-legacy-1.6.4.tgz 163ms (cache miss)
+21 silly fetch manifest agora-rtc-sdk-ng@https://registry.npmmirror.com/agora-rtc-sdk-ng/-/agora-rtc-sdk-ng-4.12.1.tgz
+22 http fetch GET 200 https://cdn.npmmirror.com/packages/agora-rtc-sdk-ng/4.12.1/agora-rtc-sdk-ng-4.12.1.tgz 445ms (cache miss)
+23 silly fetch manifest ant-design-vue@https://registry.npmmirror.com/ant-design-vue/download/ant-design-vue-2.2.8.tgz
+24 http fetch GET 200 https://cdn.npmmirror.com/packages/ant-design-vue/2.2.8/ant-design-vue-2.2.8.tgz 4807ms (cache miss)
+25 silly fetch manifest axios@https://registry.npmmirror.com/axios/download/axios-0.21.4.tgz
+26 http fetch GET 200 https://cdn.npmmirror.com/packages/axios/0.21.4/axios-0.21.4.tgz 202ms (cache miss)
+27 silly fetch manifest eventemitter3@https://registry.npmmirror.com/eventemitter3/-/eventemitter3-5.0.0.tgz
+28 http fetch GET 200 https://cdn.npmmirror.com/packages/eventemitter3/5.0.0/eventemitter3-5.0.0.tgz 143ms (cache miss)
+29 silly fetch manifest mitt@https://registry.npmmirror.com/mitt/-/mitt-3.0.0.tgz
+30 http fetch GET 200 https://cdn.npmmirror.com/packages/mitt/3.0.0/mitt-3.0.0.tgz 152ms (cache miss)
+31 silly fetch manifest mqtt@https://registry.npmmirror.com/mqtt/-/mqtt-4.3.7.tgz
+32 http fetch GET 200 https://cdn.npmmirror.com/packages/mqtt/4.3.7/mqtt-4.3.7.tgz 230ms (cache miss)
+33 silly fetch manifest query-string@https://registry.npmmirror.com/query-string/download/query-string-7.1.0.tgz
+34 http fetch GET 200 https://cdn.npmmirror.com/packages/query-string/7.1.0/query-string-7.1.0.tgz 157ms (cache miss)
+35 silly fetch manifest reconnecting-websocket@https://registry.npmmirror.com/reconnecting-websocket/download/reconnecting-websocket-4.4.0.tgz
+36 http fetch GET 200 https://cdn.npmmirror.com/packages/reconnecting-websocket/4.4.0/reconnecting-websocket-4.4.0.tgz 156ms (cache miss)
+37 silly fetch manifest vconsole@https://registry.npmmirror.com/vconsole/download/vconsole-3.11.0.tgz
+38 http fetch GET 200 https://cdn.npmmirror.com/packages/vconsole/3.11.0/vconsole-3.11.0.tgz 208ms (cache miss)
+39 silly fetch manifest vite-plugin-components@https://registry.npmjs.org/vite-plugin-components/-/vite-plugin-components-0.13.3.tgz
+40 http fetch GET 200 https://registry.npmjs.org/vite-plugin-components/-/vite-plugin-components-0.13.3.tgz 65ms (cache miss)
+41 silly fetch manifest vite-plugin-importer@https://registry.npmmirror.com/vite-plugin-importer/download/vite-plugin-importer-0.2.5.tgz
+42 http fetch GET 200 https://cdn.npmmirror.com/packages/vite-plugin-importer/0.2.5/vite-plugin-importer-0.2.5.tgz 138ms (cache miss)
+43 silly fetch manifest vite-plugin-optimize-persist@https://registry.npmmirror.com/vite-plugin-optimize-persist/download/vite-plugin-optimize-persist-0.1.2.tgz
+44 http fetch GET 200 https://cdn.npmmirror.com/packages/vite-plugin-optimize-persist/0.1.2/vite-plugin-optimize-persist-0.1.2.tgz 152ms (cache miss)
+45 silly fetch manifest vite-plugin-package-config@https://registry.npmmirror.com/vite-plugin-package-config/download/vite-plugin-package-config-0.1.1.tgz
+46 http fetch GET 200 https://cdn.npmmirror.com/packages/vite-plugin-package-config/0.1.1/vite-plugin-package-config-0.1.1.tgz 159ms (cache miss)
+47 silly fetch manifest vue@https://registry.npmmirror.com/vue/download/vue-3.2.26.tgz
+48 http fetch GET 200 https://cdn.npmmirror.com/packages/vue/3.2.26/vue-3.2.26.tgz 434ms (cache miss)
+49 silly fetch manifest vue-cookies@https://registry.npmjs.org/vue-cookies/-/vue-cookies-1.7.4.tgz
+50 http fetch GET 200 https://registry.npmjs.org/vue-cookies/-/vue-cookies-1.7.4.tgz 54ms (cache miss)
+51 silly fetch manifest vue-i18n@https://registry.npmmirror.com/vue-i18n/download/vue-i18n-9.1.9.tgz
+52 http fetch GET 200 https://cdn.npmmirror.com/packages/vue-i18n/9.1.9/vue-i18n-9.1.9.tgz 248ms (cache miss)
+53 silly fetch manifest vue-router@https://registry.npmmirror.com/vue-router/download/vue-router-4.0.12.tgz
+54 http fetch GET 200 https://cdn.npmmirror.com/packages/vue-router/4.0.12/vue-router-4.0.12.tgz 217ms (cache miss)
+55 silly fetch manifest vuex@https://registry.npmmirror.com/vuex/download/vuex-4.0.2.tgz
+56 http fetch GET 200 https://cdn.npmmirror.com/packages/vuex/4.0.2/vuex-4.0.2.tgz 168ms (cache miss)
+57 silly fetch manifest @types/node@https://registry.npmmirror.com/@types/node/download/@types/node-16.11.19.tgz
+58 http fetch GET 200 https://cdn.npmmirror.com/packages/%40types/node/16.11.19/node-16.11.19.tgz 277ms (cache miss)
+59 silly fetch manifest @types/urlencode@https://registry.npmmirror.com/@types/urlencode/download/@types/urlencode-1.1.2.tgz
+60 http fetch GET 200 https://cdn.npmmirror.com/packages/%40types/urlencode/1.1.2/urlencode-1.1.2.tgz 136ms (cache miss)
+61 silly fetch manifest @typescript-eslint/eslint-plugin@https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-5.9.1.tgz
+62 http fetch GET 200 https://cdn.npmmirror.com/packages/%40typescript-eslint/eslint-plugin/5.9.1/eslint-plugin-5.9.1.tgz 483ms (cache miss)
+63 silly fetch manifest @typescript-eslint/parser@https://registry.npmmirror.com/@typescript-eslint/parser/download/@typescript-eslint/parser-5.9.1.tgz
+64 http fetch GET 200 https://cdn.npmmirror.com/packages/%40typescript-eslint/parser/5.9.1/parser-5.9.1.tgz 162ms (cache miss)
+65 silly fetch manifest @vitejs/plugin-vue@https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.10.2.tgz
+66 http fetch GET 200 https://cdn.npmmirror.com/packages/%40vitejs/plugin-vue/1.10.2/plugin-vue-1.10.2.tgz 163ms (cache miss)
+67 silly fetch manifest @vue/compiler-sfc@https://registry.npmmirror.com/@vue/compiler-sfc/download/@vue/compiler-sfc-3.2.26.tgz
+68 http fetch GET 200 https://cdn.npmmirror.com/packages/%40vue/compiler-sfc/3.2.26/compiler-sfc-3.2.26.tgz 357ms (cache miss)
+69 silly fetch manifest eslint@https://registry.npmmirror.com/eslint/download/eslint-7.32.0.tgz
+70 http fetch GET 200 https://cdn.npmmirror.com/packages/eslint/7.32.0/eslint-7.32.0.tgz 504ms (cache miss)
+71 silly fetch manifest eslint-config-standard@https://registry.npmmirror.com/eslint-config-standard/download/eslint-config-standard-16.0.3.tgz
+72 http fetch GET 200 https://cdn.npmmirror.com/packages/eslint-config-standard/16.0.3/eslint-config-standard-16.0.3.tgz 131ms (cache miss)
+73 silly fetch manifest eslint-plugin-import@https://registry.npmmirror.com/eslint-plugin-import/download/eslint-plugin-import-2.25.4.tgz
+74 http fetch GET 200 https://cdn.npmmirror.com/packages/eslint-plugin-import/2.25.4/eslint-plugin-import-2.25.4.tgz 281ms (cache miss)
+75 silly fetch manifest eslint-plugin-node@https://registry.npmmirror.com/eslint-plugin-node/download/eslint-plugin-node-11.1.0.tgz
+76 http fetch GET 200 https://cdn.npmmirror.com/packages/eslint-plugin-node/11.1.0/eslint-plugin-node-11.1.0.tgz 178ms (cache miss)
+77 silly fetch manifest eslint-plugin-promise@https://registry.npmmirror.com/eslint-plugin-promise/download/eslint-plugin-promise-5.2.0.tgz
+78 http fetch GET 200 https://cdn.npmmirror.com/packages/eslint-plugin-promise/5.2.0/eslint-plugin-promise-5.2.0.tgz 149ms (cache miss)
+79 silly fetch manifest eslint-plugin-vue@https://registry.npmmirror.com/eslint-plugin-vue/download/eslint-plugin-vue-7.20.0.tgz
+80 http fetch GET 200 https://cdn.npmmirror.com/packages/eslint-plugin-vue/7.20.0/eslint-plugin-vue-7.20.0.tgz 296ms (cache miss)
+81 silly fetch manifest rollup-plugin-external-globals@https://registry.nlark.com/rollup-plugin-external-globals/download/rollup-plugin-external-globals-0.6.1.tgz
+82 http fetch GET https://registry.nlark.com/rollup-plugin-external-globals/download/rollup-plugin-external-globals-0.6.1.tgz attempt 1 failed with ECONNRESET
+83 http fetch GET https://registry.nlark.com/rollup-plugin-external-globals/download/rollup-plugin-external-globals-0.6.1.tgz attempt 2 failed with ECONNRESET
