@@ -46,7 +46,7 @@ public class MsdkControlBridgeService {
     private static final int LOW_BATTERY_PERCENT = 20;
     private static final int MAX_COMMAND_RESULTS = 2_000;
     private static final long DEFAULT_CONTROL_SESSION_TIMEOUT_MS = 10_000L;
-    private static final long TELEMETRY_FRESH_MS = 3_000L;
+    private static final long TELEMETRY_FRESH_MS = 5_000L;
     private static final long MAX_RC_CLOCK_OFFSET_MS = 60_000L;
     private static final Set<String> ALLOWED_COMMANDS = new HashSet<>(Arrays.asList(
             "HEARTBEAT",
