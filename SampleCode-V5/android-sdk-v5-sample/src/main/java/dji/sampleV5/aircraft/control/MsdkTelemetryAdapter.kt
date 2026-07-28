@@ -17,6 +17,7 @@ import dji.v5.manager.KeyManager
 object MsdkTelemetryAdapter {
 
     private const val EMIT_INTERVAL_MS = 500L
+    private const val HEARTBEAT_INTERVAL_MS = 1_000L
     private val handler = Handler(Looper.getMainLooper())
     private var listener: ((AircraftTelemetry) -> Unit)? = null
     private var emitScheduled = false
@@ -38,6 +39,14 @@ object MsdkTelemetryAdapter {
     private val emitTask = Runnable {
         emitScheduled = false
         listener?.invoke(currentTelemetry())
+    }
+    private val heartbeatTask = object : Runnable {
+        override fun run() {
+            listener?.invoke(currentTelemetry())
+            if (listener != null) {
+                handler.postDelayed(this, HEARTBEAT_INTERVAL_MS)
+            }
+        }
     }
 
     fun start(onTelemetry: (AircraftTelemetry) -> Unit) {
@@ -81,10 +90,12 @@ object MsdkTelemetryAdapter {
             batteryPercent = value
             scheduleEmit()
         }
+        handler.postDelayed(heartbeatTask, HEARTBEAT_INTERVAL_MS)
     }
 
     fun stop() {
         handler.removeCallbacks(emitTask)
+        handler.removeCallbacks(heartbeatTask)
         emitScheduled = false
         KeyManager.getInstance().cancelListen(this)
         listener = null
