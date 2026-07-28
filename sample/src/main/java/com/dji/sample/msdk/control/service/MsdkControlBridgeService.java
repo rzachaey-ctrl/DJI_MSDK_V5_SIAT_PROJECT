@@ -47,6 +47,7 @@ public class MsdkControlBridgeService {
     private static final int MAX_COMMAND_RESULTS = 2_000;
     private static final long DEFAULT_CONTROL_SESSION_TIMEOUT_MS = 10_000L;
     private static final long TELEMETRY_FRESH_MS = 3_000L;
+    private static final long MAX_RC_CLOCK_OFFSET_MS = 60_000L;
     private static final Set<String> ALLOWED_COMMANDS = new HashSet<>(Arrays.asList(
             "HEARTBEAT",
             "ENABLE_CONTROL",
@@ -598,7 +599,7 @@ public class MsdkControlBridgeService {
             }
         }
         command.setVersion(1);
-        command.setTimestamp(System.currentTimeMillis());
+        command.setTimestamp(rcAlignedTimestamp());
 
         if ("STICK".equals(command.getType())) {
             validateStick(command.getPayload());
@@ -680,7 +681,7 @@ public class MsdkControlBridgeService {
         command.setType("SAFETY_RELEASE");
         command.setControlSessionId(expired.getId());
         command.setSequence(expired.getNextSequence());
-        command.setTimestamp(System.currentTimeMillis());
+        command.setTimestamp(rcAlignedTimestamp());
         MsdkControlEvent pending = createResult(
                 command.getRequestId(), "PENDING",
                 "Waiting for MSDK safety-release acknowledgement.");
@@ -740,6 +741,27 @@ public class MsdkControlBridgeService {
                         "Stick values must be between " + STICK_MIN + " and " + STICK_MAX + ".");
             }
         }
+    }
+
+    /**
+     * Commands are validated against the RC system clock. Derive that clock
+     * from authenticated RC telemetry so a modest host clock error does not
+     * make otherwise fresh commands appear to come from the future.
+     */
+    private long rcAlignedTimestamp() {
+        long now = System.currentTimeMillis();
+        MsdkControlEvent telemetrySnapshot = telemetry;
+        Long receivedAt = telemetryReceivedAt;
+        Long rcTimestamp = telemetrySnapshot == null ? null : telemetrySnapshot.getTimestamp();
+        if (receivedAt == null || rcTimestamp == null || rcTimestamp <= 0) {
+            return now;
+        }
+        long offset = receivedAt - rcTimestamp;
+        if (Math.abs(offset) > MAX_RC_CLOCK_OFFSET_MS) {
+            log.warn("Ignoring implausible RC clock offset. offsetMs={}", offset);
+            return now;
+        }
+        return now - offset;
     }
 
     private void rememberResult(String requestId, MsdkControlEvent result) {

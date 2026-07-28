@@ -171,6 +171,23 @@ class MsdkControlBridgeServiceTest {
     }
 
     @Test
+    void alignsCommandTimestampToAuthenticatedRcTelemetryClock() throws Exception {
+        long rcTimestamp = System.currentTimeMillis() - 8_000;
+        bridgeService.receive("{\"version\":1,\"type\":\"AIRCRAFT_CONNECTION\","
+                + "\"status\":\"ONLINE\",\"aircraft_connected\":true}");
+        bridgeService.receive("{\"version\":1,\"type\":\"AIRCRAFT_TELEMETRY\","
+                + "\"status\":\"UPDATED\",\"battery_percent\":80,\"timestamp\":"
+                + rcTimestamp + "}");
+        MsdkControlCommand command = new MsdkControlCommand();
+        command.setType("ENABLE_CONTROL");
+        command.setControlSessionId(bridgeService.acquireSession().getId());
+
+        MsdkControlCommand sent = bridgeService.send(command);
+
+        assertTrue(Math.abs(sent.getTimestamp() - rcTimestamp) < 1_000);
+    }
+
+    @Test
     void reportsConnectionLifecycle() {
         assertTrue(bridgeService.status().isConnected());
         assertEquals("simulated-rc-pro", bridgeService.status().getSessionId());
