@@ -42,9 +42,13 @@ public class JwtUtil {
         JwtUtil.age = age * 1000;
     }
 
-    @Value("${jwt.secret: CloudApiSample}")
+    @Value("${jwt.secret:}")
     private void setSecret(String secret) {
-        JwtUtil.secret = secret;
+        if (!StringUtils.hasText(secret) || secret.trim().length() < 32) {
+            throw new IllegalStateException(
+                    "JWT_SECRET must be configured with at least 32 characters.");
+        }
+        JwtUtil.secret = secret.trim();
         setAlgorithm();
     }
 
@@ -108,12 +112,10 @@ public class JwtUtil {
             builder.withExpiresAt(new Date(now.getTime() + age));
         }
 
-        String token = builder
+        return builder
                 .withIssuedAt(now)
                 .withNotBefore(now)
                 .sign(algorithm);
-        log.debug("token created. " + token);
-        return token;
     }
 
     /**
@@ -136,7 +138,7 @@ public class JwtUtil {
         try {
             jwt = verifyToken(token);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.debug("JWT verification failed: {}", e.getMessage());
             return Optional.empty();
         }
         return Optional.of(new CustomClaim(jwt.getClaims()));

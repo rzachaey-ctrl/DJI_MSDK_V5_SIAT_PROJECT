@@ -15,6 +15,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.run/
 *.iws
 *.iml
 *.ipr
@@ -35,4 +36,7 @@ build/
 /mvnw
 /mvnw.cmd
 /logs/
+/sample/logs/
+/sample/config/local-secrets.properties
+/.env.local
 /src/test/

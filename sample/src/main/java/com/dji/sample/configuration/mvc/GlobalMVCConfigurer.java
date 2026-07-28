@@ -34,6 +34,10 @@ public class GlobalMVCConfigurer implements WebMvcConfigurer {
         excludePaths.add("/swagger-ui/**");
         excludePaths.add("/v3/**");
         excludePaths.add("/ui/**");
+        // WebSocket upgrades are authenticated by MsdkControlHandshakeInterceptor.
+        excludePaths.add("/api/v1/msdk/control");
+        // The RC Pro authenticates this binary download with the MSDK bridge token.
+        excludePaths.add("/api/v1/msdk/missions/*/file");
         // Intercept for all request interfaces.
         registry.addInterceptor(authInterceptor).addPathPatterns("/**").excludePathPatterns(excludePaths);
     }
