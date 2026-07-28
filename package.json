@@ -1,6 +1,6 @@
 {
-  "name": "demo-web",
-  "version": "0.0.1",
+  "name": "mavic-3t-control-console",
+  "version": "1.0.0",
   "scripts": {
     "serve": "vite",
     "build:test": "vite build --mode stag",
@@ -21,23 +21,23 @@
     "query-string": "^7.0.1",
     "reconnecting-websocket": "^4.4.0",
     "vconsole": "^3.8.1",
-    "vite-plugin-components": "^0.13.3",
+    "vite-plugin-components": "https://registry.npmjs.org/vite-plugin-components/-/vite-plugin-components-0.13.3.tgz",
     "vite-plugin-importer": "^0.2.5",
     "vite-plugin-optimize-persist": "^0.1.2",
     "vite-plugin-package-config": "^0.1.1",
-    "vue": "^3.2.26",
-    "vue-cookies": "^1.7.4",
+    "vue": "3.2.26",
+    "vue-cookies": "https://registry.npmjs.org/vue-cookies/-/vue-cookies-1.7.4.tgz",
     "vue-i18n": "^9.1.6",
     "vue-router": "4",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^16.3.2",
+    "@types/node": "16.3.2",
     "@types/urlencode": "^1.1.2",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "@vitejs/plugin-vue": "^1.2.4",
-    "@vue/compiler-sfc": "^3.0.5",
+    "@vue/compiler-sfc": "3.2.26",
     "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
@@ -46,13 +46,13 @@
     "eslint-plugin-vue": "^7.13.0",
     "rollup-plugin-external-globals": "^0.6.1",
     "sass": "^1.35.1",
-    "typescript": "^4.5.4",
+    "typescript": "4.5.4",
     "vite": "^2.4.0",
     "vite-plugin-eslint": "^1.3.0",
     "vite-plugin-style-import": "^1.0.1",
     "vite-plugin-svg-icons": "^1.0.5",
     "vite-plugin-vconsole": "^1.1.0",
-    "vue-tsc": "^0.0.24"
+    "vue-tsc": "0.0.24"
   },
   "license": "ISC",
   "vite": {

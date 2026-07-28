@@ -11,6 +11,8 @@ export enum ERouterName {
     WORKSPACE = 'workspace',
     MEMBERS = 'members',
     DEVICES = 'devices',
+    MSDK_CONTROL = 'msdk-control',
+    MSDK_MISSION = 'msdk-mission',
     TASK = 'task',
     CREATE_PLAN = 'create-plan',
     SELECT_PLAN = 'select-plan',

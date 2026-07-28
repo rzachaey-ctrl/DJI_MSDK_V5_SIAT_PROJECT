@@ -59,12 +59,12 @@ interface IOptions {
   icon: string
 }
 const username = ref(localStorage.getItem(ELocalStorageKey.Username))
-const workspaceName = ref('')
+const workspaceName = ref('Mavic 3T Operations')
 const options = [
-  { key: 0, label: ERouterName.WORKSPACE.charAt(0).toUpperCase() + ERouterName.WORKSPACE.substr(1), path: '/' + ERouterName.WORKSPACE },
-  { key: 1, label: ERouterName.MEMBERS.charAt(0).toUpperCase() + ERouterName.MEMBERS.substr(1), path: '/' + ERouterName.MEMBERS },
-  { key: 2, label: ERouterName.DEVICES.charAt(0).toUpperCase() + ERouterName.DEVICES.substr(1), path: '/' + ERouterName.DEVICES },
-  { key: 3, label: ERouterName.FIRMWARES.charAt(0).toUpperCase() + ERouterName.FIRMWARES.substr(1), path: '/' + ERouterName.FIRMWARES },
+  { key: 0, label: 'Map', path: '/' + ERouterName.WORKSPACE },
+  { key: 1, label: 'Aircraft', path: '/' + ERouterName.DEVICES },
+  { key: 2, label: 'Flight Control', path: '/' + ERouterName.MSDK_CONTROL },
+  { key: 3, label: 'Missions', path: '/' + ERouterName.MSDK_MISSION },
 ]
 
 const selected = ref<string>(root.$route.path)

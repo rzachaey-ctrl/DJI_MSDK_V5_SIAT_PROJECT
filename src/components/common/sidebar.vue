@@ -53,13 +53,7 @@ export default defineComponent({
   setup () {
     const root = getRoot()
     const options = [
-      { key: 0, label: 'Tsa', path: '/' + ERouterName.TSA, icon: 'TeamOutlined' },
-      { key: 1, label: 'Livestream', path: '/' + ERouterName.LIVESTREAM, icon: 'VideoCameraOutlined' },
-      { key: 2, label: 'Annotations', path: '/' + ERouterName.LAYER, icon: 'EnvironmentOutlined' },
-      { key: 3, label: 'Media Files', path: '/' + ERouterName.MEDIA, icon: 'PictureOutlined' },
-      { key: 4, label: 'Flight Route Library', path: '/' + ERouterName.WAYLINE, icon: 'NodeIndexOutlined' },
-      { key: 5, label: 'Task Plan Library', path: '/' + ERouterName.TASK, icon: 'CalendarOutlined' },
-      { key: 6, label: 'Flight Area', path: '/' + ERouterName.FLIGHT_AREA, icon: 'GroupOutlined' },
+      { key: 0, label: 'Map', path: '/' + ERouterName.TSA, icon: 'EnvironmentOutlined' },
     ]
 
     function selectedRoute (item: IOptions) {
@@ -68,7 +62,7 @@ export default defineComponent({
     }
 
     function goHome () {
-      root.$router.push('/' + ERouterName.MEMBERS)
+      root.$router.push('/' + ERouterName.DEVICES)
     }
 
     return {

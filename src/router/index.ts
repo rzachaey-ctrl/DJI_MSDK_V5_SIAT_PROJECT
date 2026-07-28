@@ -1,10 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { ERouterName } from '/@/types/index'
-import CreatePlan from '/@/components/task/CreatePlan.vue'
-import WaylinePanel from '/@/pages/page-web/projects/wayline.vue'
-import DockPanel from '/@/pages/page-web/projects/dock.vue'
-import LiveAgora from '/@/components/livestream-agora.vue'
-import LiveOthers from '/@/components/livestream-others.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,30 +12,31 @@ const routes: Array<RouteRecordRaw> = [
     name: ERouterName.PROJECT,
     component: () => import('/@/pages/page-web/index.vue')
   },
-  // members, devices
+  // Device console
   {
     path: '/' + ERouterName.HOME,
     name: ERouterName.HOME,
     component: () => import('/@/pages/page-web/home.vue'),
+    redirect: '/' + ERouterName.DEVICES,
     children: [
-      {
-        path: '/' + ERouterName.MEMBERS,
-        name: ERouterName.MEMBERS,
-        component: () => import('/@/pages/page-web/projects/members.vue')
-      },
       {
         path: '/' + ERouterName.DEVICES,
         name: ERouterName.DEVICES,
         component: () => import('/@/pages/page-web/projects/devices.vue')
       },
       {
-        path: '/' + ERouterName.FIRMWARES,
-        name: ERouterName.FIRMWARES,
-        component: () => import('../pages/page-web/projects/Firmwares.vue')
+        path: '/' + ERouterName.MSDK_CONTROL,
+        name: ERouterName.MSDK_CONTROL,
+        component: () => import('/@/pages/page-web/projects/mavic-3t-control.vue')
+      },
+      {
+        path: '/' + ERouterName.MSDK_MISSION,
+        name: ERouterName.MSDK_MISSION,
+        component: () => import('/@/pages/page-web/projects/mavic-3t-missions.vue')
       }
     ]
   },
-  // workspace
+  // Device map
   {
     path: '/' + ERouterName.WORKSPACE,
     name: ERouterName.WORKSPACE,
@@ -49,66 +45,9 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/' + ERouterName.TSA,
+        name: ERouterName.TSA,
         component: () => import('/@/pages/page-web/projects/tsa.vue')
-      },
-      {
-        path: '/' + ERouterName.LIVESTREAM,
-        name: ERouterName.LIVESTREAM,
-        component: () => import('/@/pages/page-web/projects/livestream.vue'),
-        children: [
-          {
-            path: ERouterName.LIVING,
-            name: ERouterName.LIVING,
-            components: {
-              LiveAgora,
-              LiveOthers
-            }
-          }
-        ]
-      },
-      {
-        path: '/' + ERouterName.LAYER,
-        name: ERouterName.LAYER,
-        component: () => import('/@/pages/page-web/projects/layer.vue')
-      },
-      {
-        path: '/' + ERouterName.MEDIA,
-        name: ERouterName.MEDIA,
-        component: () => import('/@/pages/page-web/projects/media.vue')
-      },
-      {
-        path: '/' + ERouterName.WAYLINE,
-        name: ERouterName.WAYLINE,
-        component: () => import('/@/pages/page-web/projects/wayline.vue')
-      },
-      {
-        path: '/' + ERouterName.TASK,
-        name: ERouterName.TASK,
-        component: () => import('/@/pages/page-web/projects/task.vue'),
-        children: [
-          {
-            path: ERouterName.CREATE_PLAN,
-            name: ERouterName.CREATE_PLAN,
-            component: CreatePlan,
-            children: [
-              {
-                path: ERouterName.SELECT_PLAN,
-                name: ERouterName.SELECT_PLAN,
-                components: {
-                  WaylinePanel,
-                  DockPanel
-                }
-              }
-            ]
-          }
-
-        ]
-      },
-      {
-        path: '/' + ERouterName.FLIGHT_AREA,
-        name: ERouterName.FLIGHT_AREA,
-        component: () => import('/@/pages/page-web/projects/flight-area.vue')
-      },
+      }
     ]
   },
   // pilot

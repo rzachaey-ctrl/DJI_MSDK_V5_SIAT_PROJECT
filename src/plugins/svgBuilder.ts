@@ -7,7 +7,7 @@ const hasViewBox = /(viewBox="[^>+].*?")/g
 const clearReturn = /(\r)|(\n)/g
 
 // Find the svg file
-function svgFind(e) {
+function svgFind (e) {
   const arr = []
   const dirents = readdirSync(e, { withFileTypes: true })
   for (const dirent of dirents) {

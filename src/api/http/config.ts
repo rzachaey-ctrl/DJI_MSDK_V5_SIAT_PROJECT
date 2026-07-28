@@ -1,13 +1,14 @@
 export const CURRENT_CONFIG = {
 
   // license
-  appId: 'Please enter the app id.', // You need to go to the development website to apply.
-  appKey: 'Please enter the app key.', // You need to go to the development website to apply.
-  appLicense: 'Please enter the app license.', // You need to go to the development website to apply.
+  appId: import.meta.env.VITE_DJI_APP_ID || '',
+  appKey: import.meta.env.VITE_DJI_APP_KEY || '',
+  appLicense: import.meta.env.VITE_DJI_APP_LICENSE || '',
 
   // http
-  baseURL: 'Please enter the backend access address prefix.', // This url must end with "/". Example: 'http://192.168.1.1:6789/'
-  websocketURL: 'Please enter the WebSocket access address.', // Example: 'ws://192.168.1.1:6789/api/v1/ws'
+  baseURL: import.meta.env.VITE_API_BASE_URL || `${window.location.origin}/`,
+  websocketURL: import.meta.env.VITE_WEBSOCKET_URL ||
+    `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/api/v1/ws`,
 
   // livestreaming
   // RTMP  Note: This IP is the address of the streaming server. If you want to see livestream on web page, you need to convert the RTMP stream to WebRTC stream.
