@@ -2,6 +2,30 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+def localConfiguration = new Properties()
+def localConfigurationFile = rootProject.file("local.properties")
+if (localConfigurationFile.exists()) {
+    localConfigurationFile.withInputStream { localConfiguration.load(it) }
+}
+def aircraftApiKey = System.getenv("DJI_AIRCRAFT_API_KEY")
+        ?: localConfiguration.getProperty("DJI_AIRCRAFT_API_KEY")
+        ?: project.findProperty("AIRCRAFT_API_KEY")
+        ?: ""
+def signingStorePath = System.getenv("ANDROID_SIGNING_STORE_FILE")
+        ?: localConfiguration.getProperty("ANDROID_SIGNING_STORE_FILE")
+def signingStorePassword = System.getenv("ANDROID_SIGNING_STORE_PASSWORD")
+        ?: localConfiguration.getProperty("ANDROID_SIGNING_STORE_PASSWORD")
+def signingKeyAlias = System.getenv("ANDROID_SIGNING_KEY_ALIAS")
+        ?: localConfiguration.getProperty("ANDROID_SIGNING_KEY_ALIAS")
+def signingKeyPassword = System.getenv("ANDROID_SIGNING_KEY_PASSWORD")
+        ?: localConfiguration.getProperty("ANDROID_SIGNING_KEY_PASSWORD")
+def releaseSigningConfigured = [
+        signingStorePath,
+        signingStorePassword,
+        signingKeyAlias,
+        signingKeyPassword
+].every { value -> value != null && !value.trim().isEmpty() }
+
 android {
     namespace "dji.sampleV5.aircraft"
     compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
@@ -12,22 +36,42 @@ android {
         targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
-        manifestPlaceholders["API_KEY"] = project.AIRCRAFT_API_KEY
+        manifestPlaceholders["API_KEY"] = aircraftApiKey
         manifestPlaceholders["GMAP_API_KEY"] = project.GMAP_API_KEY
         manifestPlaceholders["MAPLIBRE_TOKEN"] = project.MAPLIBRE_TOKEN
+        def controlWsUrl = providers.environmentVariable("MSDK_CONTROL_WS_URL")
+                .orElse(localConfiguration.getProperty("CONTROL_WS_URL"))
+                .orElse(providers.gradleProperty("CONTROL_WS_URL"))
+                .get()
+        buildConfigField "String", "CONTROL_WS_URL", "\"${controlWsUrl}\""
+        def controlDryRun = providers.environmentVariable("MSDK_CONTROL_DRY_RUN")
+                .orElse(localConfiguration.getProperty("CONTROL_DRY_RUN"))
+                .orElse(providers.gradleProperty("CONTROL_DRY_RUN"))
+                .get()
+        buildConfigField "boolean", "CONTROL_DRY_RUN", controlDryRun
+        manifestPlaceholders["CONTROL_USES_CLEARTEXT"] =
+                Boolean.parseBoolean(controlDryRun) ? "true" : "false"
+        def controlAuthToken = providers.environmentVariable("MSDK_CONTROL_AUTH_TOKEN")
+                .orElse(localConfiguration.getProperty("CONTROL_AUTH_TOKEN"))
+                .orElse(providers.gradleProperty("CONTROL_AUTH_TOKEN"))
+                .getOrElse("")
+        buildConfigField "String", "CONTROL_AUTH_TOKEN", "\"${controlAuthToken}\""
         ndk {
             //noinspection ChromeOsAbiSupport
             abiFilters 'arm64-v8a'
         }
     }
 
-    //配置签名信息
+    // Release signing is supplied only through the environment or ignored
+    // local.properties. Debug builds use Android's per-developer debug key.
     signingConfigs {
         release {
-            storeFile file(project.STORE_FILE)
-            storePassword project.STORE_PASSWORD
-            keyAlias project.KEY_ALIAS
-            keyPassword project.KEY_PASSWORD
+            if (releaseSigningConfigured) {
+                storeFile rootProject.file(signingStorePath)
+                storePassword signingStorePassword
+                keyAlias signingKeyAlias
+                keyPassword signingKeyPassword
+            }
         }
     }
 
@@ -35,12 +79,13 @@ android {
         release {
             minifyEnabled true
             shrinkResources false
-            signingConfig signingConfigs.release
+            if (releaseSigningConfigured) {
+                signingConfig signingConfigs.release
+            }
         }
         debug {
             minifyEnabled false
             shrinkResources false
-            signingConfig signingConfigs.release
         }
     }
 
@@ -99,6 +144,20 @@ android {
 
     buildFeatures {
         viewBinding true
+        buildConfig true
+    }
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    def releaseTaskRequested = taskGraph.allTasks.any { task ->
+        task.project == project && task.name.toLowerCase().contains("release")
+    }
+    if (releaseTaskRequested && !releaseSigningConfigured) {
+        throw new GradleException(
+                "Release signing is not configured. Set ANDROID_SIGNING_STORE_FILE, " +
+                        "ANDROID_SIGNING_STORE_PASSWORD, ANDROID_SIGNING_KEY_ALIAS, and " +
+                        "ANDROID_SIGNING_KEY_PASSWORD in the environment or local.properties."
+        )
     }
 }
 
@@ -130,4 +189,6 @@ dependencies {
     implementation deps.dom
     kapt deps.glidecompiler
     implementation deps.lynx
+    implementation deps.gson
+    implementation deps.okhttp3
 }

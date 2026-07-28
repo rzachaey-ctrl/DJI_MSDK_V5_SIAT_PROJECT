@@ -60,6 +60,7 @@ abstract class DJIMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val handler: Handler = Handler(Looper.getMainLooper())
     private val disposable = CompositeDisposable()
+    private var flightConsoleLaunched = false
 
     abstract fun prepareUxActivity()
 
@@ -184,6 +185,12 @@ abstract class DJIMainActivity : AppCompatActivity() {
 
     fun <T> enableTestingTools(cl: Class<T>) {
         enableShowCaseButton(binding.testingToolButton, cl)
+    }
+
+    fun <T> launchFlightConsole(cl: Class<T>) {
+        if (flightConsoleLaunched || isFinishing || isDestroyed) return
+        flightConsoleLaunched = true
+        startActivity(Intent(this, cl))
     }
 
     private fun <T> enableShowCaseButton(view: View, cl: Class<T>) {

@@ -35,22 +35,23 @@ class VirtualStickVM : DJIViewModel() {
     // RC Stick Value
     var stickValue = MutableLiveData(RCStickValue(0, 0, 0, 0))
 
+    private val virtualStickStateListener = object : VirtualStickStateListener {
+        override fun onVirtualStickStateUpdate(stickState: VirtualStickState) {
+            currentVirtualStickStateInfo.postValue(currentVirtualStickStateInfo.value?.apply {
+                this.state = stickState
+            })
+        }
+
+        override fun onChangeReasonUpdate(reason: FlightControlAuthorityChangeReason) {
+            currentVirtualStickStateInfo.postValue(currentVirtualStickStateInfo.value?.apply {
+                this.reason = reason
+            })
+        }
+    }
+
     init {
         currentSpeedLevel.value = VirtualStickManager.getInstance().speedLevel
-        VirtualStickManager.getInstance().setVirtualStickStateListener(object :
-            VirtualStickStateListener {
-            override fun onVirtualStickStateUpdate(stickState: VirtualStickState) {
-                currentVirtualStickStateInfo.postValue(currentVirtualStickStateInfo.value?.apply {
-                    this.state = stickState
-                })
-            }
-
-            override fun onChangeReasonUpdate(reason: FlightControlAuthorityChangeReason) {
-                currentVirtualStickStateInfo.postValue(currentVirtualStickStateInfo.value?.apply {
-                    this.reason = reason
-                })
-            }
-        })
+        VirtualStickManager.getInstance().setVirtualStickStateListener(virtualStickStateListener)
     }
 
     fun enableVirtualStick(callback: CommonCallbacks.CompletionCallback) {
@@ -127,7 +128,8 @@ class VirtualStickVM : DJIViewModel() {
 
     override fun onCleared() {
         KeyManager.getInstance().cancelListen(this)
-        VirtualStickManager.getInstance().clearAllVirtualStickStateListener()
+        VirtualStickManager.getInstance()
+            .removeVirtualStickStateListener(virtualStickStateListener)
     }
 
     data class VirtualStickStateInfo(

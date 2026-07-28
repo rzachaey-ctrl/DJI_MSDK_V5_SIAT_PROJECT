@@ -20,7 +20,7 @@
     <string name="release_note_loading">加载中...</string>
 
     <string name="app_name_all">MSDK全部功能</string>
-    <string name="app_name_aircraft">MSDK飞机功能</string>
+    <string name="app_name_aircraft">Mavic 3T 控制台</string>
     <string name="app_name_handheld">MSDK手持功能</string>
 
     <string name="item_key_value_title">Key/Value</string>
