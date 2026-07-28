@@ -65,7 +65,7 @@ object ControlChannelManager {
                     message = reason,
                     dryRun = BuildConfig.CONTROL_DRY_RUN,
                     aircraftConnected = MsdkFlightControlAdapter.isAircraftConnected(),
-                    controlEnabled = MsdkFlightControlAdapter.isControlEnabled()
+                    controlEnabled = reportedControlEnabled()
                 ))
             }
         })
@@ -111,7 +111,7 @@ object ControlChannelManager {
             status = "INTERRUPTED",
             message = "RC application entered background",
             dryRun = BuildConfig.CONTROL_DRY_RUN,
-            controlEnabled = MsdkFlightControlAdapter.isControlEnabled()
+            controlEnabled = reportedControlEnabled()
         ))
         val current = socket
         socket = null
@@ -290,7 +290,7 @@ object ControlChannelManager {
                     message = "MSDK Android bridge connected",
                     dryRun = BuildConfig.CONTROL_DRY_RUN,
                     aircraftConnected = MsdkFlightControlAdapter.isAircraftConnected(),
-                    controlEnabled = MsdkFlightControlAdapter.isControlEnabled()
+                    controlEnabled = reportedControlEnabled()
                 ))
                 sendAircraftConnection(MsdkFlightControlAdapter.isAircraftConnected())
                 sendTelemetry(MsdkTelemetryAdapter.currentTelemetry())
@@ -349,7 +349,7 @@ object ControlChannelManager {
             },
             dryRun = BuildConfig.CONTROL_DRY_RUN,
             aircraftConnected = connected,
-            controlEnabled = MsdkFlightControlAdapter.isControlEnabled()
+            controlEnabled = reportedControlEnabled()
         ))
     }
 
@@ -360,7 +360,7 @@ object ControlChannelManager {
             message = "Aircraft telemetry updated",
             dryRun = BuildConfig.CONTROL_DRY_RUN,
             aircraftConnected = MsdkFlightControlAdapter.isAircraftConnected(),
-            controlEnabled = MsdkFlightControlAdapter.isControlEnabled(),
+            controlEnabled = reportedControlEnabled(),
             latitude = telemetry.latitude,
             longitude = telemetry.longitude,
             altitude = telemetry.altitude,
@@ -390,6 +390,13 @@ object ControlChannelManager {
         }
         return null
     }
+
+    private fun reportedControlEnabled(): Boolean =
+        if (BuildConfig.CONTROL_DRY_RUN) {
+            activeControlSessionId != null
+        } else {
+            MsdkFlightControlAdapter.isControlEnabled()
+        }
 
     private fun runOnMain(action: () -> Unit) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
